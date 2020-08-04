@@ -40,12 +40,15 @@ class Song
 
     def self.artist_count
         sHash = {};
+       
         @@artists.each {|artist|
-            if sHash[artist]
-                sHash[artist] += 1;
-            else
-                sHash[artist] = 1;
-            end
+            sHash[artist] ||= 0;
+            sHash[artist] += 1;
+            #if sHash[artist]
+               # sHash[artist] += 1;
+            #else
+               # sHash[artist] = 1;
+           # end
         }
         return sHash;
         
